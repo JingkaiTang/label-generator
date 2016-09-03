@@ -8,6 +8,8 @@ from math import floor
 
 DEBUG = False
 STRICT = True
+X_RATIO = 0.8
+Y_RATIO = 0.8
 
 fontName = 'STSong-Light'
 
@@ -15,23 +17,26 @@ def init():
     pdfmetrics.registerFont(UnicodeCIDFont(fontName))
 
 
-def auto_adapt(ux, uy, text):
-    fs = floor(uy / 0.6)
-    print('fs:', fs)
-    while stringWidth(text, fontName, fs)/0.8 >= ux:
+def autoFit(ux, uy, text):
+    log('Auto Fitting...')
+    fs = floor(uy * Y_RATIO / 0.6)
+    if fs < 1:
+        fs = 1
+    log('font size: %s' % fs)
+    while fs != 1 and stringWidth(text, fontName, fs)/X_RATIO >= ux:
         fs -= 1
-        print('fs:', fs)
+        log('font size: %s' % fs)
     px = stringWidth(text, fontName, fs)
-    print('px:', px)
+    log('px: %s' % px)
     py = fs * 0.6
-    print('py:', py)
+    log('py: %s' % py)
     return fs, px, py
 
 def generate(filePath, width, height, line, column, text):
     ux = width/column
     uy = height/line
 
-    fontSize, px, py = auto_adapt(ux, uy, text)
+    fontSize, px, py = autoFit(ux, uy, text)
 
     dx = (ux-px)/2
     dy = (uy-py)/2
@@ -58,6 +63,11 @@ def get_lines(width, height, line, column):
 
 def build_return(code, msg):
     return {'code': code, 'msg': msg}
+
+
+def log(msg):
+    if DEBUG:
+        print(msg)
 
 if __name__ == '__main__':
     DEBUG = True
