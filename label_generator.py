@@ -12,9 +12,16 @@ X_RATIO = 0.8
 Y_RATIO = 0.8
 
 fontName = 'STSong-Light'
+title = ''
+subject = '不干胶标签打印'
+author = 'Jingkai Tang'
+creator = 'Label Generator'
+
 
 def init():
     pdfmetrics.registerFont(UnicodeCIDFont(fontName))
+
+init()
 
 
 def autoFit(ux, uy, text):
@@ -33,6 +40,8 @@ def autoFit(ux, uy, text):
     return fs, px, py
 
 def generate(filePath, width, height, line, column, text):
+    width *= cm
+    height *= cm
     ux = width/column
     uy = height/line
 
@@ -42,6 +51,10 @@ def generate(filePath, width, height, line, column, text):
     dy = (uy-py)/2
 
     c = Canvas(filePath, pagesize=(width, height))
+    c.setAuthor(author)
+    c.setCreator(creator)
+    c.setTitle(text)
+    c.setSubject(subject)
     c.setFont(fontName, fontSize)
     if DEBUG:
         c.lines(get_lines(width, height, line, column))
@@ -77,5 +90,4 @@ if __name__ == '__main__':
     l = 15
     c = 5
     text = 'Hello 世界!'
-    init()
-    generate(fp, w*cm, h*cm, l, c, text)
+    generate(fp, w, h, l, c, text)
