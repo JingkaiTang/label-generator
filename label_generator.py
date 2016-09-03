@@ -18,7 +18,7 @@ def init():
 def auto_adapt(ux, uy, text):
     fs = floor(uy / 0.6)
     print('fs:', fs)
-    while stringWidth(text, fontName, fs) >= ux:
+    while stringWidth(text, fontName, fs)/0.8 >= ux:
         fs -= 1
         print('fs:', fs)
     px = stringWidth(text, fontName, fs)
@@ -66,6 +66,6 @@ if __name__ == '__main__':
     h = 20.8
     l = 15
     c = 5
-    text = 'Hello 世界'
+    text = 'Hello 世界!'
     init()
     generate(fp, w*cm, h*cm, l, c, text)
