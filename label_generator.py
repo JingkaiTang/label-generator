@@ -4,6 +4,7 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.lib.units import cm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+from math import floor
 
 DEBUG = False
 STRICT = True
@@ -15,9 +16,15 @@ def init():
 
 
 def auto_adapt(ux, uy, text):
-    fs = 15
+    fs = floor(uy / 0.6)
+    print('fs:', fs)
+    while stringWidth(text, fontName, fs) >= ux:
+        fs -= 1
+        print('fs:', fs)
     px = stringWidth(text, fontName, fs)
+    print('px:', px)
     py = fs * 0.6
+    print('py:', py)
     return fs, px, py
 
 def generate(filePath, width, height, line, column, text):
