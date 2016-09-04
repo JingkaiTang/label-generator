@@ -17,15 +17,23 @@ function generate() {
         },
         success: function(data, status, xhr) {
             if (status == 'success') {
-                console.log(data.pdf);
-                window.open(data.pdf);
+                success(data.pdf);
             } else {
-                alert("创建失败！");
+                failure();
             }
         },
         error: function(xhr, status, err) {
-            alert("创建失败！");
+            failure();
         },
         dataType: "json"
     });
+}
+
+function success(pdf) {
+    console.log(pdf);
+    window.open(pdf);
+}
+
+function failure() {
+    alert("创建失败！");
 }

@@ -9,14 +9,52 @@
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1>不干胶标签打印</h1>
-            <p>自动生成器</p>
+        <div class="row">
+            <div class="col-xs-3">
+            </div>
+
+            <div class="col-xs-6 jumbotron">
+                <h1>不干胶标签打印</h1>
+                <p>自动生成器</p>
+            </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+            </div>
+
+            <div class="col-xs-6">
+                <div class="input-group">
+                    <div class="input-group-btn specs-dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" id="specs-list" data-toggle="dropdown">
+                            <span>标签规格</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="specs-list">
+                            <li role="presentation" class="template invisible">
+                                <div role="menuitem" tabindex="-1" href="#">
+                                    <span>自定义标签 宽12.2厘米 高20.8厘米 15行 5列</span>
+                                    <a href="#">删除</a>
+                                </div>
+                            </li>
+                            <li role="presentation" class="template">
+                                <div role="menuitem" tabindex="-1" href="#">
+                                    <span>自定义标签 宽12.2厘米 高20.8厘米 15行 5列</span>
+                                    <a href="#">删除</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="text" name="specs" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-xs-3">
             </div>
             <div class="col-xs-3">
+                <h3><span class="label label-default">纸张大小</span></h3>
                 <div class="input-group">
                     <span class="input-group-addon">宽</span>
                     <input type="text" name="width" class="form-control" />
@@ -29,6 +67,7 @@
                 </div>
                 </div>
             <div class="col-xs-3">
+                <h3><span class="label label-default">标签数量</span></h3>
                 <div class="input-group">
                     <input type="text" name="line" class="form-control" />
                     <span class="input-group-addon">行</span>
@@ -40,9 +79,7 @@
             </div>
         </div>
 
-        <div class="row">
-            <br />
-        </div>
+        <br />
 
         <div class="row">
             <div class="col-xs-3">
