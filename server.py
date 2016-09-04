@@ -3,8 +3,12 @@ from flask import Flask, request, jsonify, send_from_directory
 from label_generator import generate as pdfG
 import datetime
 import os
+import uuid
 
 app = Flask(__name__)
+gen_dir = 'gen'
+log_dir = 'log'
+
 
 @app.route('/generatePDF', methods=['GET', 'POST'])
 def generatePDF():
@@ -18,20 +22,31 @@ def generatePDF():
     column = int(column)
     text = request.form['text']
     log('Generate: width: %s, height: %s, line: %s, column: %s, text: %s' % (width, height, line, column, text))
-    ret = pdfG('sstest.pdf', width, height, line, column, text)
-    return jsonify(ret)
+    gf = randF()
+    pdfG(gf, width, height, line, column, text)
+    return jsonify({'pdf': '/' + gf})
 
 
-@app.route('/web')
-@app.route('/web/<path:path>')
-def web_static(path=None):
+@app.route('/')
+@app.route('/<path:path>')
+def web(path=None):
     if not path:
         path = 'index.html'
     return send_from_directory('web', path)
 
 
+@app.route('/gen/<path:path>')
+def gen(path):
+    return send_from_directory('gen', path)
+
+
+def randF():
+    if not os.path.exists(gen_dir):
+        os.mkdir(gen_dir)
+    return os.path.join(gen_dir, str(uuid.uuid4())+'.pdf')
+
+
 def log(msg):
-    log_dir = 'log'
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
     now = datetime.datetime.now()
