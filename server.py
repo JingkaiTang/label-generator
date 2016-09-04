@@ -27,11 +27,8 @@ def generatePDF():
     return jsonify({'pdf': gf})
 
 
-@app.route('/')
 @app.route('/<path:path>')
-def web(path=None):
-    if not path:
-        path = 'index.html'
+def web(path):
     return send_from_directory('web', path)
 
 
