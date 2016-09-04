@@ -37,3 +37,40 @@ function success(pdf) {
 function failure() {
     alert("创建失败！");
 }
+
+function addSpec(width, height, line, column) {
+    spec = {name: "自定义规格", width: width, height: height, line: line, column: column};
+    specs_client.push(spec);
+    Cookies.set(key_specs);
+
+    bindSpecs();
+}
+
+function removeSpec() {
+
+    bindSpecs();
+}
+
+function bindSpecs() {
+
+}
+
+$(function() {
+    key_specs = "specs";
+    specs_server = [];
+    $.ajax({
+        type: "POST",
+        url: "data",
+        dataType: "json",
+        success: function(data, status, xhr) {
+            specs_server = data;
+        }
+    });
+
+    specs_client = Cookies.getJSON(key_specs);
+    if (specs_client == undefined) {
+        specs_client = [];
+    }
+
+    bindSpecs();
+});

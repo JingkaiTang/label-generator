@@ -1,0 +1,31 @@
+.template {
+    display: none;
+}
+
+.spec-item {
+    text-decoration: none;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    min-width: 550px;
+}
+
+.spec-item:hover {
+    color: #262626;
+    background-color: #f5f5f5;
+}
+
+.spec-item>span {
+    font-size: 18px;
+    margin-left: 4px;
+    margin-right: 12px;
+}
+
+.spec-item>span:hover {
+    cursor: pointer;
+}
+
+.spec-item>a {
+    font-size: 14px;
+    float: right;
+    margin-right: 4px;
+}
