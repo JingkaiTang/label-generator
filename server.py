@@ -24,7 +24,7 @@ def generatePDF():
     log('Generate: width: %s, height: %s, line: %s, column: %s, text: %s' % (width, height, line, column, text))
     gf = randF()
     pdfG(gf, width, height, line, column, text)
-    return jsonify({'pdf': '/' + gf})
+    return jsonify({'pdf': gf})
 
 
 @app.route('/')

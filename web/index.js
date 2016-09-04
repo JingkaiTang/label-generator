@@ -7,7 +7,7 @@ function generate() {
     console.log("width: " + width, ", height: " + height + ", line: " + line + ", column: " + column + ", text: " + text);
     $.ajax({
         type: "POST",
-        url: "/generatePDF",
+        url: "generatePDF",
         data: {
             "width": width,
             "height": height,
