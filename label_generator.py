@@ -62,7 +62,6 @@ def generate(filePath, width, height, line, column, text):
         for j in range(0, line):
             c.drawString(i*ux+dx, j*uy+dy, text)
     c.save()
-    return build_return(0, 'Success!')
 
 
 def get_lines(width, height, line, column):
@@ -72,10 +71,6 @@ def get_lines(width, height, line, column):
     lines.extend([(i*ux, 0, i*ux, height) for i in range(0, column+1)])
     lines.extend([(0, i*uy, width, i*uy) for i in range(0, line+1)])
     return lines
-
-
-def build_return(code, msg):
-    return {'code': code, 'msg': msg}
 
 
 def log(msg):
