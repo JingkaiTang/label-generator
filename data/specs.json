@@ -1,0 +1,30 @@
+[
+    {
+        "name": "兴利105",
+        "width": 12.2,
+        "height": 20.8,
+        "line": 15,
+        "column": 5
+    },
+    {
+        "name": "测试规格1",
+        "width": 15,
+        "height": 22,
+        "line": 18,
+        "column": 6
+    },
+    {
+        "name": "Test Spec 2",
+        "width": 222,
+        "height": 111,
+        "line": 22,
+        "column": 44
+    },
+    {
+        "name": "Test Spec 3",
+        "width": 5.2,
+        "height": 12.6,
+        "line": 8,
+        "column": 3
+    }
+]

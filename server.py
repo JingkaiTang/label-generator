@@ -4,6 +4,7 @@ from label_generator import generate as pdfG
 import datetime
 import os
 import uuid
+import json
 
 app = Flask(__name__)
 gen_dir = 'gen'
@@ -35,6 +36,11 @@ def web(path):
 @app.route('/gen/<path:path>')
 def gen(path):
     return send_from_directory('gen', path)
+
+
+@app.route('/data', methods=['GET', 'POST'])
+def data():
+    return jsonify(json.load(open('data/specs.json')))
 
 
 def randF():
