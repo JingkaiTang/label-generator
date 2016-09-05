@@ -6,29 +6,5 @@
         "line": 15,
         "column": 5,
         "tag": 0
-    },
-    {
-        "name": "测试规格1",
-        "width": 15,
-        "height": 22,
-        "line": 18,
-        "column": 6,
-        "tag": 1
-    },
-    {
-        "name": "Test Spec 2",
-        "width": 222,
-        "height": 111,
-        "line": 22,
-        "column": 41,
-        "tag": 2
-    },
-    {
-        "name": "Test Spec 3",
-        "width": 5.2,
-        "height": 12.6,
-        "line": 8,
-        "column": 3,
-        "tag": 3
     }
 ]
