@@ -28,11 +28,6 @@ def generatePDF():
     return jsonify({'pdf': gf})
 
 
-@app.route('/')
-def root():
-    return redirect('/index.html', code=302)
-
-
 @app.route('/<path:path>')
 def web(path):
     return send_from_directory('web', path)
