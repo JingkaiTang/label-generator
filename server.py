@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, redirect
 from label_generator import generate as pdfG
 import datetime
 import os
@@ -26,6 +26,11 @@ def generatePDF():
     gf = randF()
     pdfG(gf, width, height, line, column, text)
     return jsonify({'pdf': gf})
+
+
+@app.route('/')
+def root():
+    return redirect('/index.html', code=302)
 
 
 @app.route('/<path:path>')
