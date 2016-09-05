@@ -29,32 +29,20 @@
             <div class="col-xs-6">
                 <div class="input-group">
                     <div class="input-group-btn specs-dropdown">
-                        <button type="button" class="btn btn-default dropdown-toggle" id="specs-list" data-toggle="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" id="specs-list-btn" data-toggle="dropdown">
                             <span>标签规格</span>
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="specs-list">
+                        <ul id="specs-list" class="dropdown-menu" role="menu" aria-labelledby="specs-list">
                             <li role="presentation" class="template">
-                                <div class="spec-item" role="menuitem" tabindex="-1" href="#">
-                                    <span>自定义标签 宽12.2厘米 高20.8厘米 15行 5列</span>
-                                    <a href="#">删除</a>
-                                </div>
-                            </li>
-                            <li role="presentation">
-                                <div class="spec-item" role="menuitem" tabindex="-1" href="#">
-                                    <span>自定义标签 宽2.2厘米 高20.8厘米 15行 5列</span>
-                                    <a href="#">删除</a>
-                                </div>
-                            </li>
-                            <li role="presentation">
-                                <div class="spec-item" role="menuitem" tabindex="-1" href="#">
-                                    <span>自定义标签 宽112.22厘米 高220.18厘米 115行 15列</span>
-                                    <a href="#">删除</a>
+                                <div class="spec-item" role="menuitem">
+                                    <span onclick="selectItem(this);">自定义标签 宽12.2厘米 高20.8厘米 15行 5列</span>
+                                    <a onclick="removeSpec(this);">删除</a>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <input type="text" name="specs" class="form-control" disabled="disabled" />
+                    <input id="input-spec" type="text" name="specs" class="form-control" disabled="disabled" />
                 </div>
             </div>
         </div>

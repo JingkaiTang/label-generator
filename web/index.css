@@ -29,3 +29,15 @@
     float: right;
     margin-right: 4px;
 }
+
+.spec-item>a:hover {
+    cursor: pointer;
+}
+
+.spec-item>a.disabled {
+    color: #666666;
+}
+
+.spec-item>a.disabled:hover {
+    cursor: default;
+}
