@@ -1,10 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from flask import Flask, request, jsonify, send_from_directory, redirect
 from label_generator import generate as pdfG
 import datetime
 import os
 import uuid
 import json
+
+from flaskrun import flaskrun
 
 app = Flask(__name__)
 gen_dir = 'gen'
@@ -57,4 +59,4 @@ def log(msg):
     open(log_f, 'a').write('[%s] %s\n' % (now.strftime('%H:%M:%S'), msg))
 
 if __name__ == '__main__':
-    app.run()
+    flaskrun(app)
