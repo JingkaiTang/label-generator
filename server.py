@@ -42,7 +42,7 @@ def gen(path):
 
 @app.route('/data', methods=['GET', 'POST'])
 def data():
-    return jsonify(json.load(open('data/specs.json')))
+    return open('data/specs.json').read()
 
 
 def randF():
